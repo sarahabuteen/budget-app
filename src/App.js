@@ -4,10 +4,10 @@ import IncomeList from "./components/IncomeList";
 import ExpenseList from "./components/ExpenseList";
 import AddTransaction from "./components/AddTransaction";
 import { GlobalContextProvider } from "./context/GlobalState";
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
-const App = () => {
+function App() {
   return (
     <GlobalContextProvider>
       <div className="app-container">
@@ -36,6 +36,6 @@ const App = () => {
       </div>
     </GlobalContextProvider>
   );
-};
+}
 
 export default App;

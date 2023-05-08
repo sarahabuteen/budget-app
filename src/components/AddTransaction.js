@@ -8,9 +8,10 @@ const AddTransaction = () => {
   const [income, setIncome] = useState({
     incomeText: "",
     incomeAmount: 0,
+    incomeDate: ""
   });
 
-  const { incomeText, incomeAmount } = income;
+  const { incomeText, incomeAmount, incomeDate } = income;
 
   const onChangeIncome = (e) => {
     setIncome({ ...income, [e.target.name]: e.target.value });
@@ -24,6 +25,7 @@ const AddTransaction = () => {
         id: uuidv4(),
         incomeText,
         incomeAmount: incomeAmount * 1,
+        incomeDate
       };
 
       addIncome(newIncomeTransaction);
@@ -31,6 +33,7 @@ const AddTransaction = () => {
       setIncome({
         incomeText: "",
         incomeAmount: 0,
+        incomeDate: ""
       });
     }
   };
@@ -38,9 +41,10 @@ const AddTransaction = () => {
   const [expense, setExpense] = useState({
     expenseText: "",
     expenseAmount: 0,
+    expenseDate: ""
   });
 
-  const { expenseText, expenseAmount } = expense;
+  const { expenseText, expenseAmount, expenseDate } = expense;
 
   const onChangeExpense = (e) => {
     setExpense({ ...expense, [e.target.name]: e.target.value });
@@ -54,6 +58,7 @@ const AddTransaction = () => {
         id: uuidv4(),
         expenseText,
         expenseAmount: expenseAmount * 1,
+        expenseDate
       };
 
       addExpense(newExpenseTransaction);
@@ -61,6 +66,7 @@ const AddTransaction = () => {
       setExpense({
         expenseText: "",
         expenseAmount: 0,
+        expenseDate: ""
       });
     }
   };
@@ -71,7 +77,7 @@ const AddTransaction = () => {
         <div className="col-md-6">
           <h4>Add Income</h4>
           <form onSubmit={onSubmitIncome}>
-            <div className="form-group">
+            <div className="form-group mb-3">
               <input
                 className="form-control"
                 type="text"
@@ -82,7 +88,7 @@ const AddTransaction = () => {
                 onChange={onChangeIncome}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group mb-3">
               <input
                 className="form-control"
                 type="number"
@@ -90,6 +96,16 @@ const AddTransaction = () => {
                 value={incomeAmount}
                 placeholder="Amount"
                 autoComplete="off"
+                onChange={onChangeIncome}
+              />
+            </div>
+            <div className="form-group mb-3">
+              <input
+                className="form-control"
+                type="date"
+                name="incomeDate"
+                value={incomeDate}
+                placeholder="Date"
                 onChange={onChangeIncome}
               />
             </div>
@@ -103,7 +119,7 @@ const AddTransaction = () => {
         <div className="col-md-6">
           <h4>Add Expense</h4>
           <form onSubmit={onSubmitExpense}>
-            <div className="form-group">
+            <div className="form-group mb-3">
               <input
                 className="form-control"
                 type="text"
@@ -114,7 +130,7 @@ const AddTransaction = () => {
                 onChange={onChangeExpense}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group mb-3">
               <input
                 className="form-control"
                 type="number"
@@ -122,6 +138,16 @@ const AddTransaction = () => {
                 value={expenseAmount}
                 placeholder="Amount"
                 autoComplete="off"
+                onChange={onChangeExpense}
+              />
+            </div>
+            <div className="form-group mb-3">
+              <input
+                className="form-control"
+                type="date"
+                name="expenseDate"
+                value={expenseDate}
+                placeholder="Date"
                 onChange={onChangeExpense}
               />
             </div>
